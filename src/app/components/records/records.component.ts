@@ -60,7 +60,10 @@ export class RecordsComponent implements OnInit {
   }
 
   count() {
-    this.dialog.open(CountDialogComponent)
+    this.dialog.open(CountDialogComponent,{
+    });
+
+    this.recordsService.getRecordsCount(this.data).subscribe()
   }
 
   public getDepartments(): Map<number, string> {

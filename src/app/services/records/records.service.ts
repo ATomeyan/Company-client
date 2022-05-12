@@ -13,7 +13,11 @@ export class RecordsService {
   constructor(private http: HttpClient) { }
 
   getRecordsByCriteria(data: any): Observable<Records[]> {
-    return this.http.post<Records[]>(`${this.url}/records`, data).pipe(catchError(this.handleError));
+    return this.http.post<Records[]>(`${this.url}/records/search`, data).pipe(catchError(this.handleError));
+  }
+
+  getRecordsCount(data: any): Observable<Records>{
+    return this.http.post<Records>(`${this.url}/records/count`, data).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
