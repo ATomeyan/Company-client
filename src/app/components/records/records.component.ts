@@ -60,11 +60,7 @@ export class RecordsComponent implements OnInit {
   }
 
   count() {
-    const counter = this.dialog.open(CountDialogComponent, {});
-
-    counter.afterClosed().subscribe(result => {
-
-    })
+    this.dialog.open(CountDialogComponent)
   }
 
   public getDepartments(): Map<number, string> {
