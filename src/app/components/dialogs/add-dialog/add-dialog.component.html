@@ -1,0 +1,113 @@
+<h1 mat-dialog-title>{{'dialogTitle.addTitle' | translate}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="dialogForm">
+    <div class="container">
+
+      <div class="row">
+        <div class="col">
+
+          <div class="form">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'empHead.fName' | translate}}</mat-label>
+              <input matInput formControlName="firstName">
+
+              <mat-error *ngIf="dialogForm.get('firstName')?.hasError('pattern')">{{'only_let' | translate}}</mat-error>
+              <mat-error
+                *ngIf="dialogForm.get('firstName')?.hasError('required')">{{'empHead.fName' | translate}} {{'must' | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'empHead.lName' | translate}}</mat-label>
+              <input matInput formControlName="lastName">
+
+              <mat-error *ngIf="dialogForm.get('lastName')?.hasError('pattern')">{{'only_let' | translate}}</mat-error>
+              <mat-error
+                *ngIf="dialogForm.get('lastName')?.hasError('required')">{{'empHead.lName' | translate}} {{'must' | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'empHead.bDay' | translate}}</mat-label>
+              <input matInput min="minDate" max="maxDate" [matDatepicker]="picker" formControlName="dateOfBirth">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+
+              <mat-error *ngIf="dialogForm.get('birthday')?.hasError('pattern')">{{'only_let' | translate}}</mat-error>
+              <mat-error
+                *ngIf="dialogForm.get('birthday')?.hasError('required')">{{'empHead.bDay' | translate}} {{'must' | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'empHead.email' | translate}}</mat-label>
+              <input matInput formControlName="email">
+
+              <mat-error *ngIf="dialogForm.get('email')?.hasError('pattern')">{{'only_let' | translate}}</mat-error>
+              <mat-error
+                *ngIf="dialogForm.get('email')?.hasError('required')">{{'empHead.email' | translate}} {{'must' | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-label>{{'empHead.gender' | translate}}</mat-label>
+            <mat-radio-group formControlName="gender" aria-labelledby="radio-group-label" class="radio-group">
+              <mat-radio-button class="radio-button" *ngFor="let gender of genders" [value]="gender | transform">
+                {{gender}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <mat-error *ngIf="dialogForm.get('gender')?.hasError('pattern')">{{'only_let' | translate}}</mat-error>
+            <mat-error
+              *ngIf="dialogForm.get('gender')?.hasError('required')">{{'empHead.gender' | translate}} {{'must' | translate}}</mat-error>
+          </div>
+
+          <div class="form">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'empHead.pos' | translate}}</mat-label>
+              <mat-select formControlName="positionId">
+                <mat-option *ngFor="let position of positions | keyvalue" [value]="position.key">
+                  {{position.value}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error
+                *ngIf="dialogForm.get('positionName')?.hasError('pattern')">{{'only_let' | translate}}</mat-error>
+              <mat-error
+                *ngIf="dialogForm.get('positionName')?.hasError('required')">{{'empHead.pos' | translate}} {{'must' | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'empHead.dep' | translate}}</mat-label>
+              <mat-select formControlName="departmentId">
+                <mat-option *ngFor="let department of departments | keyvalue" [value]="department.key">
+                  {{department.value}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error
+                *ngIf="dialogForm.get('departmentName')?.hasError('pattern')">{{'only_let' | translate}}</mat-error>
+              <mat-error
+                *ngIf="dialogForm.get('departmentName')?.hasError('required')">{{'empHead.dep' | translate}} {{'must' | translate}}</mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div mat-dialog-actions>
+    <button mat-button [disabled]="!dialogForm.valid" [mat-dialog-close]="1" class="mat-raised-button" color="primary" (click)="save()">
+      {{'dialogTitle.btnSave' | translate}}
+    </button>
+
+    <button mat-button mat-dialog-close="">{{'dialogTitle.btnCancel' | translate}}</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+section {
+  display: table;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+}

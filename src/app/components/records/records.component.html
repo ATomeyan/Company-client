@@ -1,0 +1,58 @@
+<div>
+  <form [formGroup]="dialogForm">
+
+    <mat-form-field class="date-from">
+      <input matInput [ngxMatDatetimePicker]="pickerFrom" placeholder="{{'pickerTitle.start' | translate}}" formControlName="entranceTime">
+      <mat-datepicker-toggle matSuffix [for]="$any(pickerFrom)"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #pickerFrom></ngx-mat-datetime-picker>
+    </mat-form-field>
+
+    <mat-form-field class="date-to">
+      <input matInput [ngxMatDatetimePicker]="pickerTo" placeholder="{{'pickerTitle.end' | translate}}" formControlName="exitTime">
+      <mat-datepicker-toggle matSuffix [for]="$any(pickerTo)"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #pickerTo></ngx-mat-datetime-picker>
+    </mat-form-field>
+
+    <mat-form-field class="select" appearance="fill">
+      <mat-label>{{'empHead.dep' | translate}}</mat-label>
+      <mat-select formControlName="employee">
+        <mat-option *ngFor="let department of departments | keyvalue" [value]="department">
+          {{department.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button class="search" mat-raised-button (click)="search()">{{'btnTitle.sBtn' | translate}}</button>
+
+    <button class="count" mat-raised-button>{{'btnTitle.countBtn' | translate}}</button>
+  </form>
+</div>
+
+<div>
+  <mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="entranceTime">
+      <mat-header-cell *matHeaderCellDef> {{'recHead.eTime' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let record">{{record.entranceTime}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="exitTime">
+      <mat-header-cell *matHeaderCellDef> {{'recHead.exTime' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let record">{{record.exitTime}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="employeeFname">
+      <mat-header-cell *matHeaderCellDef> {{'empHead.fName' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let record">{{record.employee.firstName}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="employeeLname">
+      <mat-header-cell *matHeaderCellDef> {{'empHead.lName' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let record">{{record.employee.lastName}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let record; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</div>

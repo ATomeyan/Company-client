@@ -1,0 +1,12 @@
+<nav class="container mb-1 mt-1">
+  <div class="row">
+    <div class="col-9"></div>
+    <div class="col-3">
+      <select id="langs" class="select" (change)="changeSiteLanguage($any($event.target).value)">
+        <option value="en">English</option>
+        <option value="hy">Հայերեն</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+  </div>
+</nav>

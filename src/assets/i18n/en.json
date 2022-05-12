@@ -1,0 +1,44 @@
+{
+  "label": {
+    "emp": "Employees",
+    "recs": "Attendance records"
+  },
+  "empHead": {
+    "fName": "First name",
+    "lName": "Last name",
+    "bDay": "Birth day",
+    "email": "Email",
+    "gender": "Gender",
+    "pos": "Position",
+    "dep": "Department",
+    "action": "Actions"
+  },
+  "recHead": {
+    "eTime": "Entrance time",
+    "exTime": "Exit time",
+    "emp": "Employee"
+  },
+  "btnTitle": {
+    "add": "Add new employee",
+    "del": "Delete",
+    "edit": "Edit",
+    "sBtn": "Search",
+    "countBtn": "Count"
+  },
+  "pickerTitle": {
+    "start": "From",
+    "end": "To"
+  },
+  "filterTitle": {
+    "filter": "Search"
+  },
+  "dialogTitle": {
+    "addTitle": "Add new employee",
+    "editTitle": "Change employee details",
+    "delTitle": "Are you sure to delete this employee?",
+    "btnSave": "Save",
+    "btnCancel": "Cancel",
+    "btnUpdate": "Update",
+    "btnDelete": "Delete"
+  }
+}
