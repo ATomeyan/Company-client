@@ -14,6 +14,7 @@ import {GlobalTabsComponent} from "./components/global-tabs/global-tabs.componen
 import {AddDialogModule} from "./components/dialogs/add-dialog/add-dialog.module";
 import {DeleteDialogModule} from "./components/dialogs/delete-dialog/delete-dialog.module";
 import {EditDialogModule} from "./components/dialogs/edit-dialog/edit-dialog.module";
+import {CountModule} from "./components/dialogs/count-dialog/count.module";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {EditDialogModule} from "./components/dialogs/edit-dialog/edit-dialog.mod
     RecordsModule,
     AddDialogModule,
     DeleteDialogModule,
-    EditDialogModule
+    EditDialogModule,
+    CountModule
   ],
   providers: [],
   bootstrap: [AppComponent]

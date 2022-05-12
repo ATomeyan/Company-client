@@ -6,8 +6,9 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {Department} from "../../models/department";
 import {HttpErrorResponse} from "@angular/common/http";
 import {DepartmentService} from "../../services/department/department.service";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import * as moment from "moment";
+import {CountDialogComponent} from "../dialogs/count-dialog/count-dialog.component";
 
 @Component({
   selector: 'app-records',
@@ -22,7 +23,7 @@ export class RecordsComponent implements OnInit {
   departments: Map<number, string>;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Records, private departmentService: DepartmentService,
-              private recordsService: RecordsService, private fb: FormBuilder) {
+              private recordsService: RecordsService, private fb: FormBuilder, private dialog: MatDialog) {
 
     this.departments = {} as Map<number, string>
   }
@@ -56,6 +57,14 @@ export class RecordsComponent implements OnInit {
       next: (res) => this.dataSource.data = res,
       error: err => this.errMessage = err
     });
+  }
+
+  count() {
+    const counter = this.dialog.open(CountDialogComponent, {});
+
+    counter.afterClosed().subscribe(result => {
+
+    })
   }
 
   public getDepartments(): Map<number, string> {
