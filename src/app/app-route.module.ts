@@ -26,6 +26,11 @@ const routes: Routes = [
   {
     path: 'edit',
     loadChildren: () => import('./components/dialogs/edit-dialog/edit-dialog.module').then(m => m.EditDialogModule)
+  },
+
+  {
+    path: 'count',
+    loadChildren: () => import('./components/dialogs/count-dialog/count.module').then(m => m.CountModule)
   }
 ];
 
