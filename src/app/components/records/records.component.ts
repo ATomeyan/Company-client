@@ -9,6 +9,7 @@ import {DepartmentService} from "../../services/department/department.service";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import * as moment from "moment";
 import {CountDialogComponent} from "../dialogs/count-dialog/count-dialog.component";
+import {RecordsByTime} from "../../models/records-by-time";
 
 @Component({
   selector: 'app-records',
@@ -22,8 +23,9 @@ export class RecordsComponent implements OnInit {
   dataSource = new MatTableDataSource<Records>();
   departments: Map<number, string>;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Records, private departmentService: DepartmentService,
-              private recordsService: RecordsService, private fb: FormBuilder, private dialog: MatDialog) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Records, @Inject(MAT_DIALOG_DATA) public dataByTime: RecordsByTime,
+              private departmentService: DepartmentService, private recordsService: RecordsService,
+              private fb: FormBuilder, private dialog: MatDialog) {
 
     this.departments = {} as Map<number, string>
   }
@@ -38,7 +40,7 @@ export class RecordsComponent implements OnInit {
     this.departments = this.getDepartments();
   }
 
-  search() {
+  criteria() {
     const entrTime = this.dialogForm.controls['entranceTime'].value;
     const exitTime = this.dialogForm.controls['exitTime'].value;
     const depId = this.dialogForm.controls['employee'].value;
@@ -47,23 +49,31 @@ export class RecordsComponent implements OnInit {
       name: depId.value
     };
 
-    const req = {
+    return {
       entranceTime: moment(entrTime).format("YYYY-MM-DD HH:mm:ss"),
       exitTime: moment(exitTime).format("YYYY-MM-DD HH:mm:ss"),
       department: departmentId
     };
+  }
 
-    this.recordsService.getRecordsByCriteria(req).subscribe({
+  search() {
+    this.recordsService.getRecordsByCriteria(this.criteria()).subscribe({
       next: (res) => this.dataSource.data = res,
       error: err => this.errMessage = err
     });
   }
 
   count() {
-    this.dialog.open(CountDialogComponent,{
-    });
+    this.recordsService.getRecordsCount(this.criteria());
 
-    this.recordsService.getRecordsCount(this.data).subscribe()
+    this.dialog.open(CountDialogComponent, {
+      width: '100%',
+      maxWidth: '400px',
+      height: 'auto',
+      hasBackdrop: true,
+      maxHeight: '700px',
+      data: this.dataByTime
+    });
   }
 
   public getDepartments(): Map<number, string> {
