@@ -54,11 +54,10 @@ export class EmployeeListComponent implements OnInit {
   addEmployee(selected?: Employee) {
     const emp = {...selected};
     const newRow = this.dialog.open(AddDialogComponent, {
-      width: '100%',
-      maxWidth: '400px',
+      width: '50%',
       height: 'auto',
       hasBackdrop: true,
-      maxHeight: '700px',
+      maxHeight: '1000',
       data: selected ? emp : {
         id: 0,
         firstName: '',
@@ -92,7 +91,6 @@ export class EmployeeListComponent implements OnInit {
 
     const newRow = this.dialog.open(EditDialogComponent, {
       width: '50%',
-      // maxWidth: '1000',
       height: 'auto',
       hasBackdrop: true,
       maxHeight: '1000',

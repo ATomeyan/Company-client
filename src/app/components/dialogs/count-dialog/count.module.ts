@@ -4,6 +4,8 @@ import {CountDialogComponent} from "./count-dialog.component";
 import {MatTableModule} from "@angular/material/table";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatSortModule} from "@angular/material/sort";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [CountDialogComponent],
@@ -11,7 +13,9 @@ import {MatSortModule} from "@angular/material/sort";
         CommonModule,
         MatTableModule,
         TranslateModule,
-        MatSortModule
+        MatSortModule,
+        MatDialogModule,
+        MatButtonModule
     ]
 })
 export class CountModule { }

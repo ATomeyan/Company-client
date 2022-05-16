@@ -9,7 +9,6 @@ import {DepartmentService} from "../../services/department/department.service";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import * as moment from "moment";
 import {CountDialogComponent} from "../dialogs/count-dialog/count-dialog.component";
-import {RecordsByTime} from "../../models/records-by-time";
 
 @Component({
   selector: 'app-records',
@@ -23,9 +22,8 @@ export class RecordsComponent implements OnInit {
   dataSource = new MatTableDataSource<Records>();
   departments: Map<number, string>;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Records, @Inject(MAT_DIALOG_DATA) public dataByTime: RecordsByTime,
-              private departmentService: DepartmentService, private recordsService: RecordsService,
-              private fb: FormBuilder, private dialog: MatDialog) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Records, private departmentService: DepartmentService,
+              private recordsService: RecordsService, private fb: FormBuilder, private dialog: MatDialog) {
 
     this.departments = {} as Map<number, string>
   }
@@ -64,7 +62,7 @@ export class RecordsComponent implements OnInit {
   }
 
   count() {
-    this.recordsService.getRecordsCount(this.criteria());
+    let data = this.criteria();
 
     this.dialog.open(CountDialogComponent, {
       width: '100%',
@@ -72,7 +70,7 @@ export class RecordsComponent implements OnInit {
       height: 'auto',
       hasBackdrop: true,
       maxHeight: '700px',
-      data: this.dataByTime
+      data: data
     });
   }
 

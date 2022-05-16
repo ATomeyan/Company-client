@@ -11,27 +11,28 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {NgxMatDatetimePickerModule, NgxMatNativeDateModule} from "@angular-material-components/datetime-picker";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [RecordsComponent],
   exports: [
     RecordsComponent
   ],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    MatTableModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatIconModule,
-    NgxMatDatetimePickerModule,
-    NgxMatNativeDateModule
-  ],
+    imports: [
+        CommonModule,
+        TranslateModule,
+        MatTableModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatIconModule,
+        NgxMatDatetimePickerModule,
+        NgxMatNativeDateModule,
+        MatDialogModule
+    ],
 
   providers:[
     {provide: MAT_DIALOG_DATA, useValue: ''}
