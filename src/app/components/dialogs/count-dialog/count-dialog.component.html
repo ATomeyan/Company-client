@@ -1,1 +1,22 @@
-<p>count-dialog works!</p>
+<div>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100" id="table" matSort>
+
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header="">{{'empHead.fName' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let rec">{{rec.firstName}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header="">{{'empHead.lName' | translate}}</mat-header-cell>
+      <mat-cell *matCellDef="let rec">{{rec.lastName}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="time">
+      <mat-header-cell *matHeaderCellDef mat-sort-header="">Hours</mat-header-cell>
+      <mat-cell *matCellDef="let rec">{{rec.time | date}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
