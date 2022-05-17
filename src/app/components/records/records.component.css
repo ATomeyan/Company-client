@@ -18,3 +18,21 @@
 .count {
   margin-left: 25px;
 }
+
+mat-cell {
+  padding: 10px;
+}
+
+mat-header-cell {
+  background: whitesmoke;
+}
+
+mat-table {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.container{
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+}

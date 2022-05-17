@@ -1,75 +1,78 @@
-<div class="container mat-elevation-z8">
+<div class="container">
 
   <div class="form">
     <mat-form-field floatPlaceholder="never" color="accent">
       <input matInput (keyup)="applyFilter($event)" placeholder="{{'filterTitle.filter' | translate}}">
     </mat-form-field>
 
-    <button class="download" (click)="download()" title="Download" mat-mini-fab color="primary" aria-label="download icon">
+    <button class="download" (click)="download()" title="Download" mat-mini-fab color="primary"
+            aria-label="download icon">
       <mat-icon>download</mat-icon>
     </button>
   </div>
 
-  <mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100" id="table" matSort>
+  <div class="mat-elevation-z8 w-100">
+    <mat-table [dataSource]="dataSource" id="table" matSort>
 
-    <ng-container matColumnDef="firstName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.fName' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let employee">{{employee.firstName}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.fName' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.firstName}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="lastName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.lName' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let employee">{{employee.lastName}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.lName' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.lastName}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="birthDay">
-      <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.bDay' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let employee">{{employee.dateOfBirth | date}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="birthDay">
+        <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.bDay' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.dateOfBirth | date}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.email' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let employee"><a href="mailto:{{employee.email}}">{{employee.email}}</a></mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.email' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let employee"><a href="mailto:{{employee.email}}">{{employee.email}}</a></mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="gender">
-      <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.gender' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let employee">{{employee.gender | transform}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.gender' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.gender | transform}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="positionName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.pos' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let employee">{{employee.position.name}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="positionName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.pos' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.position.name}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="departmentName">
-      <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.dep' | translate}}</mat-header-cell>
-      <mat-cell *matCellDef="let employee">{{employee.department.name}}</mat-cell>
-    </ng-container>
+      <ng-container matColumnDef="departmentName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header=""> {{'empHead.dep' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.department.name}}</mat-cell>
+      </ng-container>
 
-    <ng-container matColumnDef="actions">
-      <mat-header-cell *matHeaderCellDef>
-        <button mat-icon-button color="primary" title="{{'btnTitle.add' | translate}}" (click)="addEmployee()">
-          <mat-icon>add</mat-icon>
-        </button>
-      </mat-header-cell>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button color="primary" title="{{'btnTitle.add' | translate}}" (click)="addEmployee()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-header-cell>
 
-      <mat-cell *matCellDef="let employee" class="py-3">
-        <button (click)="editEmployee(employee)" title="{{'btnTitle.edit' | translate}}" mat-mini-fab
-                color="primary" aria-label="edit icon" style="margin-right: 20px">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button (click)="delete(employee.id)" title="{{'btnTitle.del' | translate}}" mat-mini-fab color="warn"
-                aria-label="delete icon">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
+        <mat-cell *matCellDef="let employee" class="py-3">
+          <button (click)="editEmployee(employee)" title="{{'btnTitle.edit' | translate}}" mat-mini-fab
+                  color="primary" aria-label="edit icon" style="margin-right: 20px">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button (click)="delete(employee.id)" title="{{'btnTitle.del' | translate}}" mat-mini-fab color="warn"
+                  aria-label="delete icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-  <mat-paginator [pageSize]="3" [pageSizeOptions]="[3, 5, 10]">
-  </mat-paginator>
+    </mat-table>
+    <mat-paginator [pageSize]="3" [pageSizeOptions]="[3, 5, 10]">
+    </mat-paginator>
+  </div>
 </div>

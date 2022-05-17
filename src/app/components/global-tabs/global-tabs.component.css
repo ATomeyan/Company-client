@@ -1,0 +1,9 @@
+.mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  color:white;
+  background-color: red;
+}
+
+.mat-tab-list .mat-tab-labels {
+  color:white;
+  background-color: white;
+}

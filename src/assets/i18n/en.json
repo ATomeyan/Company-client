@@ -36,9 +36,12 @@
     "addTitle": "Add new employee",
     "editTitle": "Change employee details",
     "delTitle": "Are you sure to delete this employee?",
+    "workingTime": "Employee working time",
     "btnSave": "Save",
     "btnCancel": "Cancel",
     "btnUpdate": "Update",
-    "btnDelete": "Delete"
+    "btnDelete": "Delete",
+    "btnClose": "Close",
+    "time": "Hours"
   }
 }

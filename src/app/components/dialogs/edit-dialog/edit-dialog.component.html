@@ -30,7 +30,7 @@
             <mat-form-field appearance="fill">
               <mat-label>{{'empHead.bDay' | translate}}</mat-label>
               <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
-              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-hint>MMMM DD, YYYY</mat-hint>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
 

@@ -9,11 +9,34 @@ import {Department} from "../../../models/department";
 import {PositionService} from "../../../services/position/position.service";
 import {DepartmentService} from "../../../services/department/department.service";
 import * as moment from 'moment';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from "@angular/material/core";
+import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'LL',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  }
+};
 
 @Component({
   selector: 'app-add-dialog',
   templateUrl: './add-dialog.component.html',
-  styleUrls: ['./add-dialog.component.css']
+  styleUrls: ['./add-dialog.component.css'],
+
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ]
 })
 export class AddDialogComponent implements OnInit {
 

@@ -1,1 +1,7 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+.navbar {
+  background: blue;
+}
+
+.select {
+  margin-left: 1800px;
+}

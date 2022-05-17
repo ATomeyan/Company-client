@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {RecordsService} from "../../services/records/records.service";
 import {Records} from "../../models/records";
 import {MatTableDataSource} from "@angular/material/table";
@@ -9,12 +9,14 @@ import {DepartmentService} from "../../services/department/department.service";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import * as moment from "moment";
 import {CountDialogComponent} from "../dialogs/count-dialog/count-dialog.component";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-records',
   templateUrl: './records.component.html',
-  styleUrls: ['./records.component.css']
+  styleUrls: ['./records.component.css'],
 })
+
 export class RecordsComponent implements OnInit {
 
   public errMessage: string | undefined = undefined;
@@ -26,6 +28,13 @@ export class RecordsComponent implements OnInit {
               private recordsService: RecordsService, private fb: FormBuilder, private dialog: MatDialog) {
 
     this.departments = {} as Map<number, string>
+  }
+
+  @ViewChild(MatPaginator)
+  set paginator(value: MatPaginator) {
+    if (this.dataSource) {
+      this.dataSource.paginator = value;
+    }
   }
 
   dialogForm = this.fb.group({

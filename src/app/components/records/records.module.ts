@@ -12,6 +12,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {NgxMatDatetimePickerModule, NgxMatNativeDateModule} from "@angular-material-components/datetime-picker";
 import {MAT_DIALOG_DATA, MatDialogModule} from "@angular/material/dialog";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [RecordsComponent],
@@ -31,7 +32,8 @@ import {MAT_DIALOG_DATA, MatDialogModule} from "@angular/material/dialog";
         MatIconModule,
         NgxMatDatetimePickerModule,
         NgxMatNativeDateModule,
-        MatDialogModule
+        MatDialogModule,
+        MatPaginatorModule
     ],
 
   providers:[

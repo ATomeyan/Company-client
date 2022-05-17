@@ -1,26 +1,27 @@
-<div class="container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100" id="table">
+<h1 mat-dialog-title>{{'dialogTitle.workingTime' | translate}}</h1>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100" id="table">
 
-      <ng-container matColumnDef="firstName">
-        <mat-header-cell *matHeaderCellDef>{{'empHead.fName' | translate}}</mat-header-cell>
-        <mat-cell *matCellDef="let rec">{{rec.firstName}}</mat-cell>
-      </ng-container>
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let rec">{{rec.firstName}}</mat-cell>
+    </ng-container>
 
-      <ng-container matColumnDef="lastName">
-        <mat-header-cell *matHeaderCellDef>{{'empHead.lName' | translate}}</mat-header-cell>
-        <mat-cell *matCellDef="let rec">{{rec.lastName}}</mat-cell>
-      </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let rec">{{rec.lastName}}</mat-cell>
+    </ng-container>
 
-      <ng-container matColumnDef="time">
-        <mat-header-cell *matHeaderCellDef>Hours</mat-header-cell>
-        <mat-cell *matCellDef="let rec">{{rec.time}}</mat-cell>
-      </ng-container>
+    <ng-container matColumnDef="time">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let rec">{{rec.time}}</mat-cell>
+    </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 
   <mat-dialog-actions>
-    <button mat-raised-button [mat-dialog-close]="-1">Close</button>
+    <button mat-raised-button [mat-dialog-close]="-1">{{'dialogTitle.btnClose' | translate}}</button>
   </mat-dialog-actions>
 </div>

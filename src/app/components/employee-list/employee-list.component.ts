@@ -78,6 +78,8 @@ export class EmployeeListComponent implements OnInit {
 
     newRow.afterClosed().subscribe(result => {
 
+      if (!result)
+        return;
       this.service.addEmployee(result).subscribe({
         next: (response: Employee) => {
           console.log("Added successfully", response);
@@ -99,6 +101,8 @@ export class EmployeeListComponent implements OnInit {
 
     newRow.afterClosed().subscribe(result => {
 
+      if (result)
+        return;
       this.service.updateEmployee(result.id, result).subscribe({
         next: (response: Employee) => {
           console.log("Updated successfully", response);
