@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="dialogForm" (ngSubmit)="login()">
+      <div class="form">
+        <mat-form-field appearance="fill">
+          <mat-label>username</mat-label>
+          <input type="text" matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+      </div>
+      <div class="form">
+        <mat-form-field appearance="fill">
+          <mat-label>password</mat-label>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+      </div>
+      <div class="button">
+        <button type="submit" mat-raised-button color="primary">Login</button>
+        <button mat-button mat-dialog-close="-1">Close</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

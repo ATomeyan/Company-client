@@ -31,6 +31,11 @@ const routes: Routes = [
   {
     path: 'count',
     loadChildren: () => import('./components/dialogs/count-dialog/count.module').then(m => m.CountModule)
+  },
+
+  {
+    path: 'login',
+    loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
   }
 ];
 

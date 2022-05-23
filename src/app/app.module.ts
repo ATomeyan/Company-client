@@ -15,11 +15,16 @@ import {AddDialogModule} from "./components/dialogs/add-dialog/add-dialog.module
 import {DeleteDialogModule} from "./components/dialogs/delete-dialog/delete-dialog.module";
 import {EditDialogModule} from "./components/dialogs/edit-dialog/edit-dialog.module";
 import {CountModule} from "./components/dialogs/count-dialog/count.module";
+import {LoginModule} from "./components/login/login.module";
+import {MatButtonModule} from "@angular/material/button";
+import {NavigationModule} from "./components/navigation/navigation.module";
+import {NavigationComponent} from "./components/navigation/navigation.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    GlobalTabsComponent
+    GlobalTabsComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +39,15 @@ import {CountModule} from "./components/dialogs/count-dialog/count.module";
     AddDialogModule,
     DeleteDialogModule,
     EditDialogModule,
-    CountModule
+    CountModule,
+    LoginModule,
+    MatButtonModule,
+    NavigationModule
   ],
   providers: [],
+  exports: [
+    GlobalTabsComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
