@@ -35,10 +35,9 @@ export class LoginComponent implements OnInit {
 
     this.userService.authenticate(data).pipe(first()).subscribe((result) => {
       if (result != null) {
-        this.responseData = result,
-          localStorage.setItem('token', this.responseData.jwtToken),
-          localStorage.setItem('sessionId', this.responseData.data),
-          this.router.navigate(['/'])
+        this.responseData = result
+          localStorage.setItem('token', this.responseData.jwtToken)
+          this.router.navigate(['/']).then()
       }
 
       console.log(result)
