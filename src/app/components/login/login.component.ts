@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../services/authentication/authentication.service";
 import {first} from "rxjs";
 import {Router} from "@angular/router";
-import {error} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-login',
@@ -40,7 +39,6 @@ export class LoginComponent implements OnInit {
           this.responseData = result;
           localStorage.setItem('token', this.responseData.jwtToken);
           this.router.navigate(['/']).then();
-          // console.log(result)
         }
       },
       error: err => this.errMessage = err
