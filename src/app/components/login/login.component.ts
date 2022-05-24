@@ -11,7 +11,6 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  token = '';
   dialogForm: FormGroup;
   responseData: any;
   public errMessage: string | undefined = undefined;
@@ -39,6 +38,7 @@ export class LoginComponent implements OnInit {
           this.responseData = result;
           localStorage.setItem('token', this.responseData.jwtToken);
           this.router.navigate(['/']).then();
+          console.log(result)
         }
       },
       error: err => this.errMessage = err
