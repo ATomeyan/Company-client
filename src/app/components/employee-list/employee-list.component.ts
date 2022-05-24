@@ -8,7 +8,7 @@ import {AddDialogComponent} from "../dialogs/add-dialog/add-dialog.component";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {DeleteDialogComponent} from "../dialogs/delete-dialog/delete-dialog.component";
-import {ExcelService} from "../../services/excel.service";
+import {ExcelService} from "../../services/excelgenerator/excel.service";
 import {EditDialogComponent} from "../dialogs/edit-dialog/edit-dialog.component";
 
 @Component({

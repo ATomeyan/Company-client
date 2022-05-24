@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {LoginComponent} from "../login/login.component";
-import {MatDialog} from "@angular/material/dialog";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -8,13 +6,11 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+  isLoggedIn = false;
 
-  constructor(private dialog: MatDialog) { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
-  openDialog() {
-    this.dialog.open(LoginComponent);
+  ngOnInit(): void {
   }
 }

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UserService} from "../../services/user.service";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
+import {first} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -9,11 +11,12 @@ import {UserService} from "../../services/user.service";
 })
 export class LoginComponent implements OnInit {
 
-  isLoggedIn = false;
   token = '';
   dialogForm: FormGroup;
+  responseData: any;
+  public errMessage: string | undefined = undefined;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: AuthenticationService, private router: Router,) {
     this.dialogForm = formBuilder.group({
       'username': ['', [Validators.required]],
       'password': ['', [Validators.required]]
@@ -30,10 +33,15 @@ export class LoginComponent implements OnInit {
       password: this.dialogForm.controls['password'].value
     }
 
-    this.userService.getLogIn(data).subscribe((result) => {
-      this.isLoggedIn = true
-    });
+    this.userService.authenticate(data).pipe(first()).subscribe((result) => {
+      if (result != null) {
+        this.responseData = result,
+          localStorage.setItem('token', this.responseData.jwtToken),
+          localStorage.setItem('sessionId', this.responseData.data),
+          this.router.navigate(['/'])
+      }
 
-    console.log(this.dialogForm.value)
+      console.log(result)
+    });
   }
 }

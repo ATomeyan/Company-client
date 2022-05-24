@@ -8,18 +8,20 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [LoginComponent],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatDialogModule
-  ]
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        RouterModule
+    ]
 })
 export class LoginModule { }

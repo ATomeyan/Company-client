@@ -15,20 +15,21 @@ import {EmployeesModule} from "../../employee-list/employees.module";
 
 @NgModule({
   declarations: [EditDialogComponent],
-    imports: [
-        CommonModule,
-        MatFormFieldModule,
-        ReactiveFormsModule,
-        TranslateModule,
-        MatDatepickerModule,
-        MatRadioModule,
-        MatOptionModule,
-        MatSelectModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatInputModule,
-        FormsModule,
-        EmployeesModule
-    ]
+  imports: [
+    CommonModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    FormsModule,
+    EmployeesModule
+  ]
 })
-export class EditDialogModule { }
+export class EditDialogModule {
+}

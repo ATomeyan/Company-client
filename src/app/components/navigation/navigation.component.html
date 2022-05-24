@@ -1,8 +1,7 @@
 <nav class="nav">
-  <div class="login">
-    <button mat-button class="nav-link" (click)="openDialog()">Login</button>
-  </div>
-  <div class="lang">
+  <div class="flex-container">
+    <button mat-button class="nav-link" routerLink="/login">Login</button>
+    <button mat-button *ngIf="isLoggedIn">Logout</button>
     <app-lang></app-lang>
   </div>
 </nav>

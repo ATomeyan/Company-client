@@ -2,11 +2,8 @@
   background: whitesmoke;
 }
 
-.lang {
-  margin-left: 1800px;
-}
-
-.login {
-  margin-bottom: 15px;
-  margin-left: 1700px;
+.flex-container {
+  display: flex;
+  justify-content: end;
+  margin-right: 15px;
 }

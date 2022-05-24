@@ -6,8 +6,4 @@ import { Injectable } from '@angular/core';
 export class TokenStorageService {
 
   constructor() { }
-
-  signOut(): void {
-    window.sessionStorage.clear();
-  }
 }

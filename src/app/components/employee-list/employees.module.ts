@@ -13,7 +13,7 @@ import {MatInputModule} from "@angular/material/input";
 import {TranslateModule} from "@ngx-translate/core";
 import {MatSortModule} from "@angular/material/sort";
 import {TransformPipe} from '../pipe/transform.pipe';
-import {ExcelService} from "../../services/excel.service";
+import {ExcelService} from "../../services/excelgenerator/excel.service";
 
 @NgModule({
   declarations: [EmployeeListComponent, TransformPipe],
