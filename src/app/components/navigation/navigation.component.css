@@ -4,6 +4,6 @@
 
 .flex-container {
   display: flex;
-  justify-content: end;
+  justify-content: right;
   margin-right: 15px;
 }
