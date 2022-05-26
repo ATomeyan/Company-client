@@ -43,5 +43,9 @@
     "btnDelete": "Delete",
     "btnClose": "Close",
     "time": "Hours"
+  },
+  "navBarItem": {
+    "login": "Log in",
+    "logout": "Log out"
   }
 }

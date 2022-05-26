@@ -1,7 +1,7 @@
 <nav class="nav">
   <div class="flex-container">
-    <button mat-button class="nav-link" routerLink="/login">Login</button>
-    <button mat-button *ngIf="isLoggedIn">Logout</button>
+    <button mat-button class="nav-link" routerLink="/login">{{'navBarItem.login' | translate}}</button>
+    <button mat-button *ngIf="isLoggedIn">{{'navBarItem.logout' | translate}}</button>
     <app-lang></app-lang>
   </div>
 </nav>

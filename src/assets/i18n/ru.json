@@ -43,5 +43,9 @@
     "btnDelete": "Удалить",
     "btnClose": "Закрыть",
     "time": "Часы"
+  },
+  "navBarItem": {
+    "login": "Вход",
+    "logout": "Выход"
   }
 }

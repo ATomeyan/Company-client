@@ -43,5 +43,9 @@
     "btnDelete": "Ջնջել",
     "btnClose": "Փակել",
     "time": "Ժամ"
+  },
+  "navBarItem": {
+    "login": "Մուտք",
+    "logout": "Ելք"
   }
 }
