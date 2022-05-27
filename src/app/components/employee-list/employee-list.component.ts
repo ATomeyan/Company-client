@@ -10,6 +10,7 @@ import {MatSort} from "@angular/material/sort";
 import {DeleteDialogComponent} from "../dialogs/delete-dialog/delete-dialog.component";
 import {ExcelService} from "../../services/excelgenerator/excel.service";
 import {EditDialogComponent} from "../dialogs/edit-dialog/edit-dialog.component";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
 
 @Component({
   selector: 'app-employee-list',
@@ -24,7 +25,8 @@ export class EmployeeListComponent implements OnInit {
   dataSource = new MatTableDataSource<Employee>();
   private employee: any;
 
-  constructor(private service: EmployeeService, private dialog: MatDialog, public translate: TranslateService, private excelService: ExcelService) {
+  constructor(private service: EmployeeService, private dialog: MatDialog, public translate: TranslateService,
+              private excelService: ExcelService, public authService: AuthenticationService) {
     const browserLang = translate.getBrowserLang();
     this.translate.use(browserLang?.match(/en|ru|hy/) ? browserLang : 'en');
   }

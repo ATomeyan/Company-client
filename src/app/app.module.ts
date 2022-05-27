@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TranslateModule} from "@ngx-translate/core";
 import {EmployeesModule} from "./components/employee-list/employees.module";
 import {MatTabsModule} from "@angular/material/tabs";
@@ -19,6 +19,7 @@ import {LoginModule} from "./components/login/login.module";
 import {MatButtonModule} from "@angular/material/button";
 import {NavigationModule} from "./components/navigation/navigation.module";
 import {NavigationComponent} from "./components/navigation/navigation.component";
+import {TokenInterceptor} from "./services/tokeninterceptor/token-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,13 @@ import {NavigationComponent} from "./components/navigation/navigation.component"
     MatButtonModule,
     NavigationModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+  ],
   exports: [
     GlobalTabsComponent
   ],

@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from "../../services/authentication/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navigation',
@@ -6,11 +8,16 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  isLoggedIn = false;
 
-  constructor() {
+  constructor(public authService: AuthenticationService, private router: Router) {
   }
 
   ngOnInit(): void {
+  }
+
+  public logOut() {
+    this.authService.clear();
+    window.location.reload();
+    this.router.navigate(['/']).then();
   }
 }

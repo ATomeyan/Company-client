@@ -51,17 +51,17 @@
 
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-          <button mat-icon-button color="primary" title="{{'btnTitle.add' | translate}}" (click)="addEmployee()">
+          <button mat-icon-button *ngIf="authService.isLoggedIn()" color="primary" title="{{'btnTitle.add' | translate}}" (click)="addEmployee()">
             <mat-icon>add</mat-icon>
           </button>
         </mat-header-cell>
 
         <mat-cell *matCellDef="let employee" class="py-3">
-          <button (click)="editEmployee(employee)" title="{{'btnTitle.edit' | translate}}" mat-mini-fab
+          <button *ngIf="authService.isLoggedIn()" (click)="editEmployee(employee)" title="{{'btnTitle.edit' | translate}}" mat-mini-fab
                   color="primary" aria-label="edit icon" style="margin-right: 20px">
             <mat-icon>edit</mat-icon>
           </button>
-          <button (click)="delete(employee.id)" title="{{'btnTitle.del' | translate}}" mat-mini-fab color="warn"
+          <button *ngIf="authService.isLoggedIn()" (click)="delete(employee.id)" title="{{'btnTitle.del' | translate}}" mat-mini-fab color="warn"
                   aria-label="delete icon">
             <mat-icon>delete</mat-icon>
           </button>

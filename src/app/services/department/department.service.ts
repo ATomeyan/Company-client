@@ -20,8 +20,8 @@ export class DepartmentService {
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
     } else {
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
+      alert(
+        `Backend returned code ${error.status}, body was: `);
     }
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }

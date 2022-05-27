@@ -17,29 +17,21 @@ export class AuthenticationService {
     return this.http.post<any>(`${this.url}/authenticate/login`, data).pipe(catchError(this.handleError));
   }
 
-  // public getToken() {
-  //   return localStorage.getItem('token') || '';
-  // }
-
-  // public getRoles(): [] {
-  //   return JSON.parse(localStorage.getItem('roles'));
-  // }
-
-  public setToken(jwtToken: string) {
-    localStorage.setItem('jwtToken', jwtToken);
+  public setToken(token: string) {
+    window.sessionStorage.setItem('token', token);
   }
 
   public getToken() {
-    return localStorage.getItem('token');
+    return window.sessionStorage.getItem('token');
   }
 
   public clear() {
-    localStorage.clear();
+    window.sessionStorage.removeItem('token');
   }
 
-  // public isLoggedIn() {
-  //   return this.getRoles() && this.getToken();
-  // }
+  public isLoggedIn(): any{
+    return this.getToken();
+  }
 
   private handleError(error: HttpErrorResponse) {
     let errMessage: string = '';
