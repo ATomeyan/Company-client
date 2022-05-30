@@ -12,7 +12,7 @@ export class RecordsService {
 
   constructor(private http: HttpClient) { }
 
-  getRecordsByCriteria(data: any): Observable<Records[]> {
+  getRecordsByCriteria(data?: any): Observable<Records[]> {
     return this.http.post<Records[]>(`${this.url}/records/search`, data).pipe(catchError(this.handleError));
   }
 

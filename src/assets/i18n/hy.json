@@ -23,7 +23,8 @@
     "del": "Ջնջել",
     "edit": "Փոփոխել",
     "sBtn": "Փնտրել",
-    "countBtn": "Հաշվել"
+    "countBtn": "Հաշվել",
+    "resetBtn": "Զրոյացնել"
   },
   "pickerTitle": {
     "start": "Սկիզբ",

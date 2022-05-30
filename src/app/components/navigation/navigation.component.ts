@@ -16,6 +16,8 @@ export class NavigationComponent implements OnInit {
   }
 
   public logOut() {
+
+    this.authService.logOut();
     this.authService.clear();
     window.location.reload();
     this.router.navigate(['/']).then();

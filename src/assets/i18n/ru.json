@@ -23,7 +23,8 @@
     "del": "Удалить",
     "edit": "Изменить",
     "sBtn": "Поиск",
-    "countBtn": "Подсчитывать"
+    "countBtn": "Подсчитывать",
+    "resetBtn": "Сброс"
   },
   "pickerTitle": {
     "start": "От",

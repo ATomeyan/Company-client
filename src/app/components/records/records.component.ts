@@ -83,6 +83,12 @@ export class RecordsComponent implements OnInit {
     });
   }
 
+  reset() {
+    if (this.dialogForm.valid) {
+      this.dialogForm.reset();
+    }
+  }
+
   public getDepartments(): Map<number, string> {
     let temp = new Map();
 

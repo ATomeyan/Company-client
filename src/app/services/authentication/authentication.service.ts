@@ -17,6 +17,10 @@ export class AuthenticationService {
     return this.http.post<any>(`${this.url}/authenticate/login`, data).pipe(catchError(this.handleError));
   }
 
+  logOut(): Observable<any> {
+    return this.http.post<any>(`${this.url}/authenticate/logout`, true).pipe(catchError(this.handleError));
+  }
+
   public setToken(token: string) {
     window.sessionStorage.setItem('token', token);
   }

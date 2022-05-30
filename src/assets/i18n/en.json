@@ -23,7 +23,8 @@
     "del": "Delete",
     "edit": "Edit",
     "sBtn": "Search",
-    "countBtn": "Count"
+    "countBtn": "Count",
+    "resetBtn": "Reset"
   },
   "pickerTitle": {
     "start": "From",

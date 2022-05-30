@@ -103,11 +103,12 @@ export class EmployeeListComponent implements OnInit {
 
     newRow.afterClosed().subscribe(result => {
 
-      if (result)
-        return;
+      // if (result)
+      //   return;
       this.service.updateEmployee(result.id, result).subscribe({
-        next: (response: Employee) => {
-          console.log("Updated successfully", response);
+        next: () => {
+          window.location.reload();
+          alert("Updated successfully");
         },
         error: err => this.errMessage = err
       })
@@ -145,6 +146,6 @@ export class EmployeeListComponent implements OnInit {
   }
 
   download(): void {
-    this.excelService.exportAsExcelFile(this.dataSource.data, 'employee');
+    this.excelService.exportAsExcelFile(this.dataSource.data, "employee");
   }
 }
