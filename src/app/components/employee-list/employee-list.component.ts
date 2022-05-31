@@ -103,13 +103,17 @@ export class EmployeeListComponent implements OnInit {
 
     newRow.afterClosed().subscribe(result => {
 
-      this.service.updateEmployee(result.id, result).subscribe({
-        next: () => {
-          window.location.reload();
-          alert("Updated successfully");
-        },
-        error: err => this.errMessage = err
-      })
+      if (result.id) {
+        this.service.updateEmployee(result.id, result).subscribe({
+          next: () => {
+            window.location.reload();
+            alert("Updated successfully");
+          },
+          error: err => this.errMessage = err
+        })
+      } else {
+        return;
+      }
     });
   }
 
