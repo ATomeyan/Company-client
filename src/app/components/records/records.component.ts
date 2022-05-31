@@ -84,7 +84,7 @@ export class RecordsComponent implements OnInit {
   }
 
   reset() {
-    if (this.dialogForm.valid) {
+    if (this.dialogForm) {
       this.dialogForm.reset();
     }
   }

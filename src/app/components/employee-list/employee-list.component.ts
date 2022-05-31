@@ -103,8 +103,6 @@ export class EmployeeListComponent implements OnInit {
 
     newRow.afterClosed().subscribe(result => {
 
-      // if (result)
-      //   return;
       this.service.updateEmployee(result.id, result).subscribe({
         next: () => {
           window.location.reload();
