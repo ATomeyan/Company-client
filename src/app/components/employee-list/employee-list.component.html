@@ -5,7 +5,7 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="{{'filterTitle.filter' | translate}}">
     </mat-form-field>
 
-    <button class="download" (click)="download()" title="Download" mat-mini-fab color="primary"
+    <button class="download" *ngIf="authService.isLoggedIn()" (click)="download()" title="Download" mat-mini-fab color="primary"
             aria-label="download icon">
       <mat-icon>download</mat-icon>
     </button>
