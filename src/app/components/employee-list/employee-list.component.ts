@@ -23,7 +23,6 @@ export class EmployeeListComponent implements OnInit {
   public errMessage: string | undefined = undefined;
   public displayedColumns = ['firstName', 'lastName', 'birthDay', 'email', 'gender', 'positionName', 'departmentName', 'actions'];
   dataSource = new MatTableDataSource<Employee>();
-  private employee: any;
 
   constructor(private service: EmployeeService, private dialog: MatDialog, public translate: TranslateService,
               private excelService: ExcelService, public authService: AuthenticationService) {
@@ -147,7 +146,21 @@ export class EmployeeListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  download(): void {
-    this.excelService.exportAsExcelFile(this.dataSource.data, "employee");
+  download() {
+    this.excelService.exportAsExcelFile().subscribe(x => {
+      const blob = new Blob([x], {type: 'application/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'})
+
+      const link = document.createElement('a');
+      const data = URL.createObjectURL(blob);
+
+      link.href = data;
+      link.download = 'employees.xlsx';
+      link.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, view: window}));
+
+      setTimeout(function () {
+        URL.revokeObjectURL(data);
+        link.remove();
+      }, 100);
+    });
   }
 }
