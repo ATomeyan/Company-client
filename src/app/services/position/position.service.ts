@@ -17,10 +17,6 @@ export class PositionService {
     return this.http.get<Position[]>(`${this.url}/positions`).pipe(catchError(this.handleError));
   }
 
-  getByPositionName(name: string): Observable<Position> {
-    return this.http.get<Position>(`${this.url}/${name}`).pipe(catchError(this.handleError));
-  }
-
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
